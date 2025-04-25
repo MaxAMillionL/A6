@@ -25,8 +25,8 @@ int main(void){
    fwrite(&ulData, sizeof(unsigned long), 1, psFile);
 
    /* Writes the null byte at the end of the students names*/
-   for (i = 0; i < 42; i++)
-      putc('\0', psFile); /* Writes '00000000' */
+   for (i = 0; i < 38; i++)
+      putc(0x00, psFile); /* Writes '00000000' */
    
 
    preturnLink = 0x400850;
