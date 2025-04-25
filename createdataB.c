@@ -30,11 +30,11 @@ int main(void){
    
 
    preturnLink = 0x00400850;
-   preturnLink = 0x50084000;
+   preturnLink = 0x54084000;
    fwrite(&preturnLink, sizeof(unsigned long), 1, psFile);
 
    pskipIf = 0x0040088c;
-   pskipIf = 0x8c084000;
+   pskipIf = 0x90084000;
    fwrite(&pskipIf, sizeof(unsigned long), 1, psFile);
 
    fclose(psFile);
