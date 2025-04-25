@@ -25,7 +25,7 @@ int main(void){
    fwrite(&ulData, sizeof(unsigned long), 1, psFile);
 
    /* Writes the null byte at the end of the students names*/
-   for (i = 0; i < 40; i++)
+   for (i = 0; i < 39; i++)
       putc(0x00, psFile); /* Writes '00000000' */
    
 /*
