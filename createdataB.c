@@ -18,7 +18,7 @@ int main(void){
    unsigned long pskipIf;
    int i;
 
-   psFile = fopen("dataB", "w");
+   psFile = fopen("dataB.txt", "w");
    
    /* Writes the student's names */
    ulData = 0x4D617856656E;
