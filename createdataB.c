@@ -21,11 +21,11 @@ int main(void){
    psFile = fopen("dataB", "w");
    
    /* Writes the student's names */
-   ulData = 0x0123456789abcdef;
+   ulData = 0x4D617820616E642056656E7573;
    fwrite(&ulData, sizeof(unsigned long), 1, psFile);
 
    /* Writes the null byte at the end of the students names*/
-   for (i = 0; i < 5; i++)
+   for (i = 0; i < 35; i++)
       putc('\0', psFile); /* Writes '00000000' */
    fclose(psFile);
 
