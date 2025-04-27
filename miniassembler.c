@@ -20,7 +20,7 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
                      unsigned int uiNumBits)
 {
    /* Your code here */
-
+   
 }
 
 /*--------------------------------------------------------------------*/
@@ -48,8 +48,8 @@ unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
    /* displacement to be split into immlo and immhi and inserted */
    uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
 
-   setField(uiDisp, 0, &uiInstr, 29, 2);
-   setField(uiDisp, 2, &uiInstr, 5, 19);
+   setField(uiDisp, 0, &uiInstr, 29, 2); /* set immlo */
+   setField(uiDisp, 2, &uiInstr, 5, 19); /* set immhi */
 
    return uiInstr;
 }
