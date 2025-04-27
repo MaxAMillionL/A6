@@ -49,7 +49,7 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
 unsigned int MiniAssembler_mov(unsigned int uiReg, int iImmed)
 {
    /* Your code here */
-
+   return 0;
 }
 
 /*--------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
    unsigned int uiToReg)
 {
    /* Your code here */
-
+   return 0;
 }
 
 /*--------------------------------------------------------------------*/
@@ -90,5 +90,5 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr)
 {
    /* Your code here */
-
+   return 0;
 }
