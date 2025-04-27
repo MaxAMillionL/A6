@@ -20,7 +20,29 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
                      unsigned int uiNumBits)
 {
    /* Your code here */
-   
+   unsigned int uiOnes;
+   int i;
+   uiOnes = 0;
+
+   /* create a binary string of 1s that is uiNumBits long */
+   for(i = 0; i < uiNumBits; i++){
+      uiOnes = (uiOnes << 1) | 1;
+   }
+
+   /* Set uiOnes to the correct position to get correct uiSrc bits */
+   uiOnes = uiOnes << uiSrcStartBit;
+
+   /* Isolate relavent bits in uiSrc */
+   uiSrc = uiSrc & uiOnes;
+
+   /* 0 out the value we went to the right*/
+   uiSrc = uiSrc >> uiSrcStartBit;
+
+   /* set uiSrc to correct position */
+   uiSrc = uiSrc << uiDestStartBit;
+
+   /* Add on bits from source to destination */
+   *puiDest = *puiDest | uiSrc;
 }
 
 /*--------------------------------------------------------------------*/
