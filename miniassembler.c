@@ -19,7 +19,6 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
                      unsigned int *puiDest, unsigned int uiDestStartBit,
                      unsigned int uiNumBits)
 {
-   /* Your code here */
    unsigned int uiOnes;
    int i;
    uiOnes = 0;
