@@ -46,7 +46,8 @@ int main(void){
    for (i = 0; i < 24; i++)
       putc(0x00, psFile); /* Writes '00000000' */
 
-   fwrite(&(pAAttack + 8), sizeof(unsigned long), 1, psFile);
+   pAAttack = pAAttack + 8;
+   fwrite(&pAAttack, sizeof(unsigned long), 1, psFile);
 
    fclose(psFile);
 
