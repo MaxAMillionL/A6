@@ -20,7 +20,7 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
                      unsigned int uiNumBits)
 {
    unsigned int uiOnes;
-   int i;
+   unsigned int i;
    uiOnes = 0;
 
    /* create a binary string of 1s that is uiNumBits long */
