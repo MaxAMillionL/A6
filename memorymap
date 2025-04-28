@@ -116,25 +116,35 @@ DATA
 
 BSS
 |---------------------------------------------------------------------|
-| Address  | Content | Description                                    |
+| Address  |           Description                                    |
 |---------------------------------------------------------------------|
-| 0x420058 |         | The input name given from stdin                |
-|          |         |                                                |
-|          |         |                                                |
+| 0x420058 | <name>:     first half of our name   (MaxV)              |
+| 0x42005c | <name+4>:   second half of our name  (en'\0''\0')        |
+| 0x420060 | <name+8>:   mov     w0, #0x41                  // #65    |
+| 0x420064 | <name+12>:  adr     x1, 0x420044 <grade>                 |
+| 0x420068 | <name+16>:  strb    w0, [x1]                             |
+| 0x42006c | <name+20>:  b       0x40089c <main+64>                   |
+| 0x420070 | <name+24>:  udf     #0                                   |
+| 0x420074 | <name+28>:  udf     #0                                   |
+| 0x420078 | <name+32>:  udf     #0                                   |
+| 0x42007c | <name+36>:  udf     #0                                   |
+| 0x420080 | <name+40>:  udf     #0                                   |
+| 0x420084 | <name+44>:  udf     #0                                   |
 |---------------------------------------------------------------------|
 
 
 STACK
 |---------------------------------------|
 |   Offset   |       Description        |
-|     0      |      readString's X30    |
-|     8      |            c             |
-|    16      |            i             |
-|    24      |      buff[0]-buff[7]     |
-|    32      |      buff[8]-buff[15]    |
-|    40      |      buff[16]-buff[23]   |
-|    48      |      buff[24]-buff[31]   |
-|    56      |      buff[32]-buff[39]   |
-|    64      |      buff[40]-buff[47]   |
-|    72      |      getName's X30       |
+|     0      |            x19           |
+|     8      |            x20           |
+|    16      |            x21           |
+|    24      |      readString's x30    |
+|    32      |      buff[0]-buff[7]     |
+|    40      |      buff[8]-buff[15]    |
+|    48      |      buff[16]-buff[23]   |
+|    56      |      buff[24]-buff[31]   |
+|    64      |      buff[32]-buff[39]   |
+|    72      |      buff[40]-buff[47]   |
+|    80      |      getName's x30       |
 |---------------------------------------|

