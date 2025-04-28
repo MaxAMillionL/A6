@@ -64,7 +64,7 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
       ulAddrOfThisInstr: the address of the b instruction itself
          (must be a multiple of 4).                                   */
 
-unsigned int MiniAssembler_bl(unsigned long ulAddr,
+unsigned int MiniAssembler_bl(unsigned long ulAddr, 
    unsigned long ulAddrOfThisInstr);
 
 
