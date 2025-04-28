@@ -143,8 +143,7 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    /* Right shift 2 so that the assembly convert it a multiple of 4, not us */
    uiDisp = uiDisp >> 2;
 
-   setField(uiDisp, 0, &uiInstr, 0, 25); /* set imm26 wihtout sign */
-   setField(uiDisp, 31, &uiInstr, 25, 1); /* set sign */
+   setField(uiDisp, 0, &uiInstr, 0, 26); /* set imm26 wihtout sign */
 
    return uiInstr;
 }
