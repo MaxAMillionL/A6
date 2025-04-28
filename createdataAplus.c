@@ -28,6 +28,7 @@ int main(void){
    /* Writes the student's names */
    ulData = 0x00006E655678614D;
    fwrite(&ulData, sizeof(unsigned long), 1, psFile);
+   printf("%d", ulInstruction);
 
    /* mov x0, 'A'   */
    ulInstruction = MiniAssembler_movX(0, 65);
