@@ -1,8 +1,8 @@
 /*--------------------------------------------------------------------*/
-/* Produces a file called dataA with the student name, a nullbyte,    */
-/* padding, assembly instructions somewhere else in memory to         */
-/* overwrite grade, and padding of null bytes. It then jumps back to  */
-/* main to finish the print f statemets.                              */
+/* Produces a file called dataAplus with the student name, a          */
+/* nullbyte, padding, assembly instructions somewhere else in memory  */
+/* to overwrite grade and print out 'A', and padding of null bytes.   */
+/* It then jumps back to main to finish the print f statements.       */
 /*                                                                    */
 /* Authors: Maxwell Lloyd and Venus Dinari                            */
 /*--------------------------------------------------------------------*/
