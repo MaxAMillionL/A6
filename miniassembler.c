@@ -49,7 +49,12 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
 unsigned int MiniAssembler_mov(unsigned int uiReg, int iImmed)
 {
    /* Your code here */
-   return 0;
+    unsigned int uiInstr;
+    uiInstr = 0x52800000;
+
+
+
+
 }
 
 /*--------------------------------------------------------------------*/
@@ -77,10 +82,12 @@ unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
 
 /*--------------------------------------------------------------------*/
 
-unsigned int MiniAssembler_strb(unsigned int uiFromReg,
+   unsigned int MiniAssembler_strb(unsigned int uiFromReg,
    unsigned int uiToReg)
 {
    /* Your code here */
+   unsigned int uiInstr;
+   uiInstr= 0x39000000;
    return 0;
 }
 
@@ -89,6 +96,7 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
 unsigned int MiniAssembler_b(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr)
 {
-   /* Your code here */
-   return 0;
+   unsigned int uiInstr;
+   uiInstr= 0x14000000;   
+   
 }
