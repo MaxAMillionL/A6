@@ -28,17 +28,16 @@ int main(void){
    /* Writes the student's names */
    ulData = 0x00006E655678614D;
    fwrite(&ulData, sizeof(unsigned long), 1, psFile);
-   printf("%d", ulInstruction);
 
    /* mov x0, 'A'   */
    ulInstruction = MiniAssembler_movX(0, 65);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
-   printf("%d", ulInstruction);
+   printf("%x ", ulInstruction);
 
    /* bl printf     */
    ulInstruction = MiniAssembler_bl(0x400690, pAAttack + 4);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
-   printf("%d", ulInstruction);
+   printf("%x ", ulInstruction);
 
    /* mov w0, '+'   
    ulInstruction = MiniAssembler_mov(0, 43);
