@@ -132,18 +132,19 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr)
 {
    unsigned int uiInstr;
-   int uiDisp;
+   unsigned int uiDisp;
 
    /* Base instruction code */
    uiInstr= 0x14000000;
 
    /* displacement */
-   uiDisp = (int)((long)ulAddr - (long)ulAddrOfThisInstr);
+   uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
 
    /* Right shift 2 so that the assembly convert it a multiple of 4, not us */
    uiDisp = uiDisp >> 2;
 
-   setField((unsigned int)uiDisp, 0, &uiInstr, 0, 26); /* set imm26 */
+   setField(uiDisp, 0, &uiInstr, 0, 25); /* set imm26 wihtout sign */
+   setField(uiDisp, 31, &uiInstr, 26, 1); /* set sign */
 
    return uiInstr;
 }
@@ -154,18 +155,18 @@ unsigned int MiniAssembler_bl(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr)
 {
    unsigned int uiInstr;
-   int uiDisp;
+   unsigned int uiDisp;
 
    /* Base instruction code */
    uiInstr= 0x94000000;
 
    /* displacement */
-   uiDisp = (int)((long)ulAddr - (long)ulAddrOfThisInstr);
+   uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
 
    /* Right shift 2 so that the assembly convert it a multiple of 4, not us */
    uiDisp = uiDisp >> 2;
 
-   setField((unsigned int)uiDisp, 0, &uiInstr, 0, 26); /* set imm26 */
+   setField(uiDisp, 0, &uiInstr, 0, 26); /* set imm26 */
 
    return uiInstr;
 }
