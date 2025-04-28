@@ -154,18 +154,18 @@ unsigned int MiniAssembler_bl(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr)
 {
    unsigned int uiInstr;
-   unsigned int uiDisp;
+   int uiDisp;
 
    /* Base instruction code */
    uiInstr= 0x94000000;
 
    /* displacement */
-   uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
+   uiDisp = (int)((long)ulAddr - (long)ulAddrOfThisInstr);
 
    /* Right shift 2 so that the assembly convert it a multiple of 4, not us */
    uiDisp = uiDisp >> 2;
 
-   setField(uiDisp, 0, &uiInstr, 0, 26); /* set imm26 */
+   setField((unsigned int)uiDisp, 0, &uiInstr, 0, 26); /* set imm26 */
 
    return uiInstr;
 }
