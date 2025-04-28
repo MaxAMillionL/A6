@@ -46,7 +46,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* adr x1, grade + 1 */
-   ulInstruction = MiniAssembler_adr(1, 0x420048, pAAttack + 4);
+   ulInstruction = MiniAssembler_adr(1, 0x420045, pAAttack + 4);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* strb wo, [x1] */
