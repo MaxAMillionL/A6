@@ -14,7 +14,6 @@
 int main(void){
    FILE *psFile;
    unsigned long ulData;
-   unsigned long preturnLink;
    unsigned long pskipIf;
    int i;
 
