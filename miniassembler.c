@@ -96,10 +96,10 @@ unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
    uiInstr= 0x39000000;
 
    /* dest register to be inserted in instruction */
-   setField(uiToReg, 0, &uiInstr, 0, 5);
+   setField(uiFromReg, 0, &uiInstr, 0, 5);
 
    /* source register to be inserted in instruction */
-   setField(uiFromReg, 0, &uiInstr, 5, 5);
+   setField(uiToReg, 0, &uiInstr, 5, 5);
 
 
    return uiInstr;
