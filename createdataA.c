@@ -26,7 +26,7 @@ int main(void){
    fwrite(&ulData, sizeof(unsigned long), 1, psFile);
 
    /* mov w0, 'A'   */
-   ulInstruction = MiniAssembler_mov(0, 10);
+   ulInstruction = MiniAssembler_mov(0, 65);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* adr x1, grade */
