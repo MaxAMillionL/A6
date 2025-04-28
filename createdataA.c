@@ -1,14 +1,13 @@
 /*--------------------------------------------------------------------*/
-/* Produces a file called dataB with the student name, a nullbyte,    */
-/* padding to overrun the stack, and the address of the instruction   */
-/* in main to get a B, the latter of which will overwrite getName's   */
-/* stored x30.                                                        */
+/* Produces a file called dataA with the student name, a nullbyte,    */
+/* padding, assembly instructions to overwrite grade, and padding of  */
+/* null bytes.                                                        */
 /*                                                                    */
 /* Authors: Maxwell Lloyd and Venus Dinari                            */
 /*--------------------------------------------------------------------*/
 
 #include <stdio.h>
-#include "miniassembler.c"
+#include "miniassembler.h"
 
 int main(void){
    FILE *psFile;
