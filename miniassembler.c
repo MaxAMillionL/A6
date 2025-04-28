@@ -119,7 +119,7 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    /* Base instruction code */
    uiInstr= 0x14000000;
 
-   /* displacement to be split into immlo and immhi and inserted */
+   /* displacement */
    uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
 
    setField(uiDisp, 0, &uiInstr, 0, 26); /* set imm26 */
