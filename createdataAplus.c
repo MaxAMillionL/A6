@@ -30,11 +30,11 @@ int main(void){
    fwrite(&ulData, sizeof(unsigned long), 1, psFile);
 
    /* mov x0, 'A'   */
-   ulInstruction = MiniAssembler_mov(0, 65);
+   ulInstruction = MiniAssembler_movX(0, 65);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* bl printf     */
-   ulInstruction = MiniAssembler_bl(0x400690, pAAttack + 4);
+   ulInstruction = MiniAssembler_bl(0xfffff7e5aad0, pAAttack + 4);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* mov w0, '+'   */
