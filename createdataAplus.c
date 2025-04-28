@@ -38,6 +38,7 @@ int main(void){
    /* bl printf     */
    ulInstruction = MiniAssembler_bl(0x400690, pAAttack + 4);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
+   printf("%d", ulInstruction);
 
    /* mov w0, '+'   
    ulInstruction = MiniAssembler_mov(0, 43);
