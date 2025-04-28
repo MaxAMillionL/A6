@@ -17,7 +17,7 @@ int main(void){
    unsigned long pAAttack;
    int i;
 
-   psFile = fopen("dataA", "w");
+   psFile = fopen("dataAplus", "w");
 
    /* Writes the new x30 for getName to skip to our assembly */
    pAAttack = 0x420058;
