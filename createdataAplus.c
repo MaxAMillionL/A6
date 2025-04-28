@@ -29,9 +29,10 @@ int main(void){
    ulData = 0x00006E655678614D;
    fwrite(&ulData, sizeof(unsigned long), 1, psFile);
 
-   /* mov w0, 'A'   */
+   /* mov x0, 'A'   */
    ulInstruction = MiniAssembler_movX(0, 65);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
+   printf("%d", ulInstruction);
 
    /* bl printf     */
    ulInstruction = MiniAssembler_bl(0x400690, pAAttack + 4);
