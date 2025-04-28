@@ -48,9 +48,10 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
 
 unsigned int MiniAssembler_mov(unsigned int uiReg, int iImmed)
 {
-   /* Your code here */
-    unsigned int uiInstr;
-    uiInstr = 0x52800000;
+   unsigned int uiInstr;
+    
+   /* Base instruction code */
+   uiInstr = 0x52800000;
 
   /* register to be inserted in instruction */
    setField(uiReg, 0, &uiInstr, 0, 5);
@@ -91,8 +92,9 @@ unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
    unsigned int MiniAssembler_strb(unsigned int uiFromReg,
    unsigned int uiToReg)
 {
-   /* Your code here */
    unsigned int uiInstr;
+   
+   /* Base instruction code */
    uiInstr= 0x39000000;
 
    /* dest register to be inserted in instruction */
@@ -112,6 +114,15 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr)
 {
    unsigned int uiInstr;
-   uiInstr= 0x14000000;   
+   unsigned int uiDisp;
 
+   /* Base instruction code */
+   uiInstr= 0x14000000;
+
+   /* displacement to be split into immlo and immhi and inserted */
+   uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
+
+   setField(uiDisp, 0, &uiInstr, 0, 26); /* set imm26 */
+
+   return uiInstr;
 }
