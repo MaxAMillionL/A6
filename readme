@@ -3,7 +3,7 @@ Assignment 6 readme File
 ------------------------------------------------------------------------
 Student 1: What is your name?
 
-
+Maxwell Lloyd
 
 ------------------------------------------------------------------------
 Student 2: What is your name?
@@ -99,7 +99,9 @@ regulations.
 Student 1: What is your assessment of the assignment? Was it helpful?
 Was it fun?
 
-
+This assignment was helpful in further visualizing the different parts
+of memory, such as the stack, bss, and data. It was really cool being 
+able to overwrite the stack to add instructions to memory.
 
 ------------------------------------------------------------------------
 Student 2: What is your assessment of the assignment? Was it helpful?
