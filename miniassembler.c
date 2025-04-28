@@ -144,7 +144,7 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    uiDisp = uiDisp >> 2;
 
    setField(uiDisp, 0, &uiInstr, 0, 25); /* set imm26 wihtout sign */
-   setField(uiDisp, 31, &uiInstr, 26, 1); /* set sign */
+   setField(uiDisp, 31, &uiInstr, 25, 1); /* set sign */
 
    return uiInstr;
 }
