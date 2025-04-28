@@ -42,18 +42,22 @@ int main(void){
    /* mov w0, '+'   */
    ulInstruction = MiniAssembler_mov(0, 43);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
+   printf("%x ", ulInstruction);
 
    /* adr x1, grade */
    ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 12);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
+   printf("%x ", ulInstruction);
 
    /* strb wo, [x1] */
    ulInstruction = MiniAssembler_strb(0, 1);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
+   printf("%x ", ulInstruction);
 
    /* b  printf     */
    ulInstruction = MiniAssembler_b(0x40089c, 0x420074);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
+   printf("%x ", ulInstruction);
 
    /* Writes the null byte at the end of the instructions */
    for (i = 0; i < 32; i++)
