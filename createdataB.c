@@ -27,7 +27,7 @@ int main(void){
    for (i = 0; i < 40; i++)
       putc(0x00, psFile); /* Writes '00000000' */
 
-   /* Writes the new x30 for getName to skip the iff */
+   /* Writes the new x30 for getName to skip the if */
    pskipIf = 0x400890;
    fwrite(&pskipIf, sizeof(unsigned long), 1, psFile);
 
