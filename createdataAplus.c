@@ -2,6 +2,7 @@
 /* Produces a file called dataAplus with the student name, a          */
 /* nullbyte, padding, assembly instructions somewhere else in memory  */
 /* to overwrite grade and print out 'A', and padding of null bytes.   */
+/* Then rewrites grade with + and does the normal procedure.          */
 /* It then jumps back to main to finish the print f statements.       */
 /*                                                                    */
 /* Authors: Maxwell Lloyd and Venus Dinari                            */
@@ -10,6 +11,8 @@
 #include <stdio.h>
 #include "miniassembler.h"
 
+/* Write the dataA file in order to overflow the stack with a way to    
+   change the grade char to be an A, prints it, and then changes it to +. Writes to the file "dataB" that grader takes as an input. Return 0   */
 int main(void){
    FILE *psFile;
    unsigned long ulData;

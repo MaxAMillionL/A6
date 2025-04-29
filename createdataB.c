@@ -9,6 +9,8 @@
 
 #include <stdio.h>
 
+/* Write the dataB file in order to overflow the stack with a way to    
+   skip the if statement to guarantee a grade of b. Writes to the file "dataB" that grader takes as an input. Return 0   */
 int main(void){
    FILE *psFile;
    unsigned long ulData;

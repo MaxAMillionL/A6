@@ -1,8 +1,8 @@
 /*--------------------------------------------------------------------*/
 /* Produces a file called dataA with the student name, a nullbyte,    */
 /* padding, assembly instructions somewhere else in memory to         */
-/* overwrite grade, and padding of null bytes. It then jumps back to  */
-/* main to finish the print f statemets.                              */
+/* overwrite grade with A, and padding of null bytes. It then jumps   */
+/* back tomain to finish the print f statemets.                       */
 /*                                                                    */
 /* Authors: Maxwell Lloyd and Venus Dinari                            */
 /*--------------------------------------------------------------------*/
@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include "miniassembler.h"
 
+/* Write the dataA file in order to overflow the stack with a way to    
+   change the grade char to be an A. Writes to the file "dataB" that grader takes as an input. Return 0   */
 int main(void){
    FILE *psFile;
    unsigned long ulData;
