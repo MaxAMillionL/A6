@@ -62,7 +62,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* Writes the null byte at the end of the instructions */
-   for (i = 0; i < 4; i++)
+   for (i = 0; i < 8; i++)
       putc(0x00, psFile); /* Writes '00000000' */
 
    
