@@ -66,24 +66,6 @@ unsigned int MiniAssembler_mov(unsigned int uiReg, int iImmed)
 
 /*--------------------------------------------------------------------*/
 
-unsigned int MiniAssembler_movX(unsigned int uiReg, int iImmed)
-{
-   unsigned int uiInstr;
-    
-   /* Base instruction code */
-   uiInstr = 0xD2800000;
-
-  /* register to be inserted in instruction */
-   setField(uiReg, 0, &uiInstr, 0, 5);
-
-
-   setField(iImmed, 0, &uiInstr, 5, 16); /* set iImmed */
-
-   return uiInstr;
-}
-
-/*--------------------------------------------------------------------*/
-
 unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr)
 {
