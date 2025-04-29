@@ -5,9 +5,9 @@
    // First loop setup
    0x4007cc <readString+8>:     mov     x19, #0x0                       // #0
    0x4007d0 <readString+12>:    adrp    x21, 0x420000 <__libc_start_main@got.plt>
-   0x4007d4 <readString+16>:    mov     w20, w19
 
    // First loop
+   0x4007d4 <readString+16>:    mov     w20, w19
    0x4007d8 <readString+20>:    ldr     x0, [x21, #72]
    0x4007dc <readString+24>:    bl      0x400640 <fgetc@plt>
    0x4007e0 <readString+28>:    add     x19, x19, #0x1
@@ -27,9 +27,9 @@
    0x400808 <readString+68>:    mov     x0, #0x1                        // #1
    0x40080c <readString+72>:    adrp    x3, 0x420000 <__libc_start_main@got.plt>
    0x400810 <readString+76>:    add     x3, x3, #0x58
-   0x400814 <readString+80>:    add     x1, x3, x0
-
+   
    // Second loop
+   0x400814 <readString+80>:    add     x1, x3, x0
    0x400818 <readString+84>:    add     x2, sp, #0x20
    0x40081c <readString+88>:    add     x2, x0, x2
    0x400820 <readString+92>:    ldurb   w2, [x2, #-1]
@@ -60,10 +60,10 @@
 
    // Prolog 
    0x40085c <main>:     stp     x19, x30, [sp, #-16]!
-   0x400860 <main+4>:   adrp    x19, 0x420000 <__libc_start_main@got.plt>
-   0x400864 <main+8>:   add     x19, x19, #0x58
 
    //mprotect(...);
+   0x400860 <main+4>:   adrp    x19, 0x420000 <__libc_start_main@got.plt>
+   0x400864 <main+8>:   add     x19, x19, #0x58
    0x400868 <main+12>:  mov     w2, #0x7                        // #7
    0x40086c <main+16>:  mov     x1, #0x1                        // #1
    0x400870 <main+20>:  and     x0, x19, #0xfffffffffffff000
@@ -89,7 +89,7 @@
    0x4008a0 <main+68>:  ldrb    w1, [x0, #68]
    0x4008a4 <main+72>:  adrp    x0, 0x400000
    0x4008a8 <main+76>:  add     x0, x0, #0x920
-   0x4008ac <main+80>:  bl      0x400690 <printf@plt>
+   0x4008ac <main+80>:  bl       <printf@plt>
 
    // printf("Thank you, %s.\n", name);
    0x4008b0 <main+84>:  adrp    x1, 0x420000 <__libc_start_main@got.plt>
@@ -110,7 +110,6 @@ DATA
 | Address  | Content | Description                                    |
 |---------------------------------------------------------------------|
 | 0x420044 |  0x44   | The global var grade that is initialized to 'D'|
-|          |         |                                                |
 |          |         |                                                |
 |---------------------------------------------------------------------|
 
